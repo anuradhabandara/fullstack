@@ -1,0 +1,17 @@
+
+    <h2>Students list</h2>
+    <ul class="students">
+      <li *ngFor="let student of students"
+        [class.selected]="student === selectedStudent"
+        (click)="onSelect(student)">
+        <span class="badge">{{student.id}}</span> {{student.name}}
+      </li>
+    </ul>
+
+    <div *ngIf="selectedStudent">
+      <h2>
+        {{selectedStudent.name | uppercase}} 
+      </h2>
+      <button (click)="gotoDetail()">View Details</button>
+    </div>
+    
