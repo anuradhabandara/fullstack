@@ -1,5 +1,5 @@
 import { Component , Input , OnInit } from '@angular/core';
-import {Student} from './student';
+import {Student} from './types/student';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
@@ -23,6 +23,11 @@ export class StudentDetailComponent implements OnInit{
 	  this.route.params
 	    .switchMap((params: Params) => this.studentService.getStudent(+params['id']))
 	    .subscribe(student => this.student = student);
+	}
+
+	save(): void {
+	  this.studentService.update(this.student)
+	    .then(() => this.goBack());
 	}
 
 	goBack(): void {

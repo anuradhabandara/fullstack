@@ -5,13 +5,22 @@
         [class.selected]="student === selectedStudent"
         (click)="onSelect(student)">
         <span class="badge">{{student.id}}</span> {{student.name}}
+        <button  (click)="delete(student); $event.stopPropagation()">delete</button>
       </li>
     </ul>
 
-    <div *ngIf="selectedStudent">
+    <div >
       <h2>
-        {{selectedStudent.name | uppercase}} 
+        Selected student : {{selectedStudent.name | uppercase}} 
       </h2>
+      <div>
+        <label>Student name:</label> <input #studentName />
+        <button (click)="add(studentName.value); studentName.value=''">
+          Add
+        </button>
+      </div>
       <button (click)="gotoDetail()">View Details</button>
+     
+
     </div>
     

@@ -1,4 +1,4 @@
-import {Student} from './student'
+import {Student} from '../types/student'
 
 
 export const STUDENTS: Student[] = [
